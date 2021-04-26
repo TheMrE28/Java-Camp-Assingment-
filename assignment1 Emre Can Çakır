@@ -1,0 +1,61 @@
+public class Course {
+    String courseName;
+    int courseId;
+
+    public Course() {
+
+    }
+
+    public Course (String courseName, int courseId) {
+        this.courseId = courseId;
+        this.courseName = courseName;
+    }
+}
+
+public class CourseManager {
+    public void add(Course course) {
+        System.out.println("Kurs eklendi :" + course.courseName);
+    }
+
+    public void update(Course course) {
+        System.out.println("Kurs bilgisi güncellendi :" + course.courseId + "'nci kurs");
+    }
+
+}
+
+
+public class Instructor {
+    String name;
+    int instructorId;
+    String instructorFeatures;
+
+    public Instructor(String name,String instructorFeatures ,int instructorId) {
+        this.instructorId = instructorId;
+        this.name = name;
+        this.instructorFeatures=instructorFeatures;
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Instructor instructor1 = new Instructor("Engin Demiroğ", "MCT,PMP,ITIL", 1);
+        Instructor instructor2 = new Instructor("Engin Demiroğ", "MCT,PMP,ITIL", 2);
+        Instructor[] instructors = {instructor1, instructor2};
+        for (Instructor instructor : instructors) {
+            System.out.println("Eğitmen adı :" + instructor.name+": " +instructor.instructorFeatures);
+        }
+        System.out.println("-----------------------------");
+        Course course1 = new Course("Java", 1);
+        Course course2 = new Course("C#", 2);
+        Course[] courses = {course1, course2};
+        for (Course course : courses) {
+            System.out.println("Ders adi :" + course.courseName);
+        }
+        CourseManager catagoryManager = new CourseManager();
+
+        catagoryManager.add(course1);
+        catagoryManager.update(course2);
+    }
+}
